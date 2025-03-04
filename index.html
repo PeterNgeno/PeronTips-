@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeronTipzz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .buy-button {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to PeronTipzz</h1>
+    <div class="product-container" id="product-list"></div>
+
+    <script>
+        const products = [
+            { 
+                name: "Product 1", 
+                image: "https://via.placeholder.com/150", 
+                description: "This is a great product with amazing features." 
+            },
+            { 
+                name: "Product 2", 
+                image: "https://via.placeholder.com/150", 
+                description: "High-quality and durable item for daily use." 
+            },
+            { 
+                name: "Product 3", 
+                image: "https://via.placeholder.com/150", 
+                description: "An essential product for your needs." 
+            }
+        ];
+
+        const productList = document.getElementById('product-list');
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <p><strong>${product.name}</strong></p>
+                <p class="description">${product.description}</p>
+                <button class="buy-button" onclick="buyNow('${product.name}', '${product.image}', '${product.description}')">Buy Now</button>
+            `;
+
+            productList.appendChild(productDiv);
+        });
+
+        function buyNow(name, imageUrl, description) {
+            const phoneNumber = "254715719644";
+            const message = `Hello, I'm interested in buying *${name}*. Description: ${description}. Here is the product image: ${imageUrl}`;
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, "_blank");
+        }
+    </script>
+
+</body>
+</html>
